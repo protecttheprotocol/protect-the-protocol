@@ -74,6 +74,20 @@ To add a hook, add an entry to `HOOKS` in `hooks.html` and its id to `HOOKS` in 
 - Test-print one poster and scan its QR from a couple of meters away before the full print run.
 - The sticker PNG is 912 px across, cut from a 1280 px JPG. It prints cleanly up to about A3. For A2 and up, get the vector original from whoever made it and drop it in as `img/sticker.svg` (then update the `src` attributes).
 
+## Hosting
+
+GitHub Pages serves the repo root from `main` (Settings → Pages → Deploy from a branch → `main`, `/ (root)`). `CNAME` holds the custom domain and `.nojekyll` makes Pages serve the files as they are. DNS for protecttheprotocol.org:
+
+```
+A     @    185.199.108.153
+A     @    185.199.109.153
+A     @    185.199.110.153
+A     @    185.199.111.153
+CNAME www  protecttheprotocol.github.io
+```
+
+Once the certificate is issued, tick "Enforce HTTPS". Every push to `main` redeploys within a minute or two.
+
 ## License
 
 The campaign materials are licensed under CC BY-SA 4.0 (see `LICENSE.md`). The fonts in `fonts/` keep their own license, the SIL Open Font License 1.1.
