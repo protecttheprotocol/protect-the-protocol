@@ -1,0 +1,13 @@
+{
+  "name": "protect-the-protocol-print",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "qr": "node qr.mjs",
+    "render": "node render.mjs"
+  },
+  "dependencies": {
+    "playwright-core": "1.56.1",
+    "qrcode": "1.5.4"
+  }
+}

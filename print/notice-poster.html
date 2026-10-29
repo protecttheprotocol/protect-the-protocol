@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<title>Notice poster</title>
+<link rel="stylesheet" href="../css/tokens.css">
+<link rel="stylesheet" href="../css/components.css">
+<link rel="stylesheet" href="poster.css">
+<style>
+  /* ISO portrait (A-series ratio). Base 600 x 848 px. */
+  @page { size: 420mm 594mm; margin: 0; }
+  @media print { html { zoom: 2.6457; } }
+  :root { --w: 600px; --h: 848px; --frame: 28px; }
+
+  .paper { padding: 32px 32px 28px; gap: 8px; }
+  .pp-sheet__head { font-size: 22px; }
+  .pp-sheet__head small { font-size: 13px; font-weight: 700; letter-spacing: 0.04em; }
+  .pp-notice { flex: 1; justify-content: space-evenly; }
+  .pp-notice__row { grid-template-columns: 96px 1fr; gap: 16px; padding-block: 10px; }
+  .pp-notice__key { font-size: 12px; color: var(--violet-soft); }
+  .pp-notice__val { font-size: 24px; color: var(--ink); }
+  .v-mission { font-size: 50px; line-height: 0.92; font-weight: 900; color: var(--violet); text-transform: uppercase; letter-spacing: -0.02em; }
+  .v-goal { font-weight: 700; line-height: 1.2; }
+  .v-ask { font-size: 46px; line-height: 0.95; font-weight: 900; color: var(--red); letter-spacing: -0.015em; }
+  .callout { gap: 18px; padding: 16px; padding-right: 150px; }
+  .qr { width: 96px; height: 96px; }
+  .callout__ask { font-size: 26px; }
+  .callout__url { margin-top: 6px; font-size: 14px; }
+  .pp-sticker { width: 190px; right: 10px; bottom: 14px; transform: rotate(-8deg); }
+</style>
+</head>
+<body>
+<div class="poster">
+  <div class="paper">
+    <div class="pp-sheet__head"><span>Official notice</span><small>Devcon · Mumbai</small></div>
+    <div class="pp-notice">
+      <div class="pp-notice__row"><span class="pp-notice__key">Who</span><span class="pp-notice__val">The Farcaster community</span></div>
+      <div class="pp-notice__row"><span class="pp-notice__key">Mission</span><span class="pp-notice__val v-mission">Protect the Protocol<span class="pp-bang">!</span></span></div>
+      <div class="pp-notice__row"><span class="pp-notice__key">Goal</span><span class="pp-notice__val v-goal">Credible neutrality and meaningful decentralization</span></div>
+      <div class="pp-notice__row"><span class="pp-notice__key">The ask</span><span class="pp-notice__val v-ask">Ethereum, stand with us.</span></div>
+      <div class="pp-notice__row"><span class="pp-notice__key">Where</span><span class="pp-notice__val">The Onchain Art Community Hub</span></div>
+    </div>
+    <div class="callout">
+      <div class="qr"><img src="../img/qr.svg" alt="QR code for protecttheprotocol.org"></div>
+      <div>
+        <div class="callout__ask">Cast your vote.</div>
+        <div class="callout__url">protecttheprotocol.org</div>
+      </div>
+    </div>
+  </div>
+  <img class="pp-sticker" src="../img/sticker.png" alt="I voted NO for Decentralization Theater">
+</div>
+</body>
+</html>

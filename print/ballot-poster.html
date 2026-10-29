@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<title>Ballot poster</title>
+<link rel="stylesheet" href="../css/tokens.css">
+<link rel="stylesheet" href="../css/components.css">
+<link rel="stylesheet" href="poster.css">
+<style>
+  /* ISO portrait (A-series ratio). Base 600 x 848 px. */
+  @page { size: 420mm 594mm; margin: 0; }
+  @media print { html { zoom: 2.6457; } }
+  :root { --w: 600px; --h: 848px; --frame: 28px; }
+
+  .paper { padding: 32px 32px 28px; gap: 20px; }
+  .pp-sheet__head { font-size: 22px; }
+  .pp-sheet__head small { font-size: 13px; font-weight: 700; letter-spacing: 0.04em; }
+  .question { margin: 0; font-size: 30px; line-height: 1.15; font-weight: 500; text-wrap: balance; }
+  .opts { display: flex; flex-direction: column; gap: 12px; }
+  .opt { display: flex; align-items: center; gap: 16px; font-size: 30px; font-weight: 900; color: var(--violet); }
+  .opt--no { color: var(--red); }
+  .opt .pp-box { width: 40px; height: 40px; }
+  h1 { margin: 16px 0 0; font-size: 74px; font-weight: 900; line-height: 0.9; letter-spacing: -0.02em; text-transform: uppercase; }
+  .line { margin: 0; font-size: 18px; line-height: 1.4; max-width: 30ch; }
+  .callout { margin-top: auto; gap: 18px; padding: 16px; }
+  .qr { width: 104px; height: 104px; }
+  .callout__ask { font-size: 30px; }
+  .callout__ask span { color: var(--on-field-accent); }
+  .callout__url { margin-top: 6px; font-size: 14px; }
+  .pp-sticker { width: 196px; right: 4px; top: 196px; }
+</style>
+</head>
+<body>
+<div class="poster">
+  <div class="paper">
+    <div class="pp-sheet__head"><span>Official ballot</span><small>Devcon · Mumbai</small></div>
+    <p class="question serif">Should an open social protocol depend on the permission of a single company?</p>
+    <div class="opts">
+      <div class="opt"><span class="pp-box"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 13 L9 19 L22 3"/></svg></span>YES</div>
+      <div class="opt opt--no"><span class="pp-box pp-box--checked"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 13 L9 19 L22 3"/></svg></span>NO</div>
+    </div>
+    <h1>Protect the protocol<span class="pp-bang">!</span></h1>
+    <p class="line serif">Vote no on decentralization theater. A permission that can be revoked is not freedom.</p>
+    <div class="callout">
+      <div class="qr"><img src="../img/qr.svg" alt="QR code for protecttheprotocol.org"></div>
+      <div>
+        <div class="callout__ask">Cast your vote<span>.</span></div>
+        <div class="callout__url">protecttheprotocol.org</div>
+      </div>
+    </div>
+  </div>
+  <img class="pp-sticker" src="../img/sticker.png" alt="I voted NO for Decentralization Theater">
+</div>
+</body>
+</html>

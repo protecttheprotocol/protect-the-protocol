@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Protect the Protocol!</title>
+<meta name="description" content="Vote no on decentralization theater. A statement from the Farcaster community at Devcon Mumbai.">
+<meta property="og:title" content="Protect the Protocol!">
+<meta property="og:description" content="Vote no on decentralization theater.">
+<meta name="theme-color" content="#482ade">
+<link rel="canonical" href="https://protecttheprotocol.org/">
+<meta property="og:url" content="https://protecttheprotocol.org/">
+<meta property="og:image" content="https://protecttheprotocol.org/img/share.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="img/mark.svg" type="image/svg+xml">
+<link rel="preload" href="fonts/Archivo-Variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+
+<header class="bar pp-on-field">
+  <div class="wrap bar__inner">
+    <a class="bar__mark" href="#top">
+      <img src="img/mark-reverse.svg" alt="" width="28" height="28">
+      <span>Protect the Protocol<span class="bar__bang">!</span></span>
+    </a>
+    <span class="bar__where">Devcon Mumbai</span>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- 1. Film. Full width. Plays muted, once, until someone turns the sound on. -->
+  <section class="film" aria-label="Campaign film">
+    <!-- Add the poster frame and the source to switch the film on, e.g.
+         poster="img/film-poster.jpg" and <source src="https://…/film.mp4" type="video/mp4"> -->
+    <video class="film__video" autoplay muted playsinline preload="metadata" data-film>
+    </video>
+    <div class="film__empty" aria-hidden="true">[Campaign film]</div>
+    <div class="film__controls">
+      <button class="film__btn" type="button" data-film-play>Pause</button>
+      <button class="film__btn" type="button" data-film-sound>Sound on</button>
+    </div>
+    <img class="pp-sticker film__sticker" src="img/sticker.png" alt="Sticker: I voted NO for Decentralization Theater" width="190" height="190">
+  </section>
+
+  <!-- 2. The vote. Voting NO ends in a cast: the cast is the vote of record. -->
+  <section class="wrap section vote-section" id="vote" aria-labelledby="vote-title">
+    <h1 class="headline" id="vote-title">Vote <span class="pp-no">no</span> on decentralization theater.</h1>
+
+    <div class="vote">
+      <div class="pp-ballot" data-ballot>
+        <p class="pp-ballot__question">Should an open social protocol depend on the permission of a single company?</p>
+        <div class="pp-ballot__options">
+          <button class="pp-option" type="button" aria-pressed="false" data-vote="yes">
+            <span class="pp-box"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 13 L9 19 L22 3"/></svg></span>Yes
+          </button>
+          <button class="pp-option pp-option--no" type="button" aria-pressed="false" data-vote="no">
+            <span class="pp-box"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 13 L9 19 L22 3"/></svg></span>No
+          </button>
+        </div>
+      </div>
+
+      <div class="vote__result" aria-live="polite">
+        <div class="vote__no" data-state="no" hidden>
+          <div class="pp-receipt">
+            <span class="pp-receipt__head">Ballot receipt</span>
+            <span>Precinct: Devcon Mumbai</span>
+            <span>Your vote: <strong>NO</strong> on decentralization theater</span>
+          </div>
+          <a class="pp-btn pp-btn--vote" href="https://farcaster.xyz/~/compose?text=I+voted+NO+for+decentralization+theater.&amp;embeds%5B%5D=https%3A%2F%2Fprotecttheprotocol.org%2F">Cast it on Farcaster</a>
+          <p class="vote__note">Your cast is your vote.</p>
+          <p class="t-small">Not on Farcaster? <a href="https://x.com/intent/post?text=I+voted+NO+for+decentralization+theater.&amp;url=https%3A%2F%2Fprotecttheprotocol.org%2F">Post it on X</a> · <a href="img/sticker.png" download data-download>Save the sticker</a></p>
+        </div>
+
+        <div class="vote__yes" data-state="yes" hidden>
+          <p class="vote__bravo">Bravo.</p>
+          <p class="t-lead">A permission that can be revoked is not freedom.</p>
+          <button class="pp-btn" type="button" data-reset>Change my vote</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. Copy, from the "Messaging" tab of the campaign doc. Keep it short and plain (see design/README.md, Voice). -->
+  <section class="band" aria-labelledby="why-title">
+    <div class="wrap section">
+      <h2 class="section__title" id="why-title">Why we're here</h2>
+      <div class="prose">
+        <p class="statement">A door is not an exit if someone else holds the key.</p>
+        <p>This is a peaceful, pro-decentralization action. We are calling for Farcaster&rsquo;s essential infrastructure to be moved onto credibly neutral foundations, so no single person or company can capture the protocol or control the community&rsquo;s ability to communicate.</p>
+        <p>Our goal isn&rsquo;t to target individuals, run an anti-person campaign, or disrupt the Ethereum ecosystem. We want to make the community&rsquo;s concerns visible and encourage collaboration on a lasting solution, without taking sides between Balaji, Cassie, Suji, or any other steward.</p>
+        <h3 class="prose__title">What we&rsquo;re fighting for</h3>
+        <ol>
+          <li><strong>Protect the protocol.</strong> Move Farcaster&rsquo;s essential infrastructure, including critical APIs and social data, onto credibly neutral foundations anchored to Ethereum.</li>
+          <li><strong>End centralized choke points.</strong> No single operator should be able to arbitrarily restrict access, visibility, or participation across the network.</li>
+          <li><strong>Make exit meaningful.</strong> Users should be able to leave an application without losing their identities, relationships, conversations, or communities.</li>
+          <li><strong>Prioritize interoperability.</strong> Farcaster, Hypersnap, and Ethereum-native clients should be able to communicate through shared, open standards.</li>
+          <li><strong>Protect user choice.</strong> Moderation should be transparent, portable, and user-controlled rather than imposed as a network-wide restriction by one operator.</li>
+        </ol>
+        <h3 class="prose__title">What we are not fighting for</h3>
+        <ul>
+          <li>We are not protesting to remove the current owners or replace one owner with another.</li>
+          <li>We are not trying to change the current owner&rsquo;s mind about how they should run their community.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Link-outs. One <li> per link, most important first. -->
+  <section class="wrap section" aria-labelledby="links-title">
+    <h2 class="section__title" id="links-title">Go further</h2>
+    <ul class="pp-links">
+      <li><a href="[STATEMENT URL]"><span class="pp-links__title">Read the full statement</span><span class="pp-links__note">[Where it lives]</span></a></li>
+      <li><a href="[CHANNEL URL]"><span class="pp-links__title">Join the channel on Farcaster</span><span class="pp-links__note">[/channel]</span></a></li>
+      <li><a href="#print"><span class="pp-links__title">Print the posters</span><span class="pp-links__note">A2 PDFs, free to use</span></a></li>
+      <li><a href="[CONTACT URL]"><span class="pp-links__title">Talk to us</span><span class="pp-links__note">The Onchain Art Community Hub, Devcon Mumbai</span></a></li>
+    </ul>
+  </section>
+
+  <!-- 5. Print kit. Files come from print/out (run `npm run render` in print/). -->
+  <section class="band" id="print" aria-labelledby="print-title">
+    <div class="wrap section">
+      <h2 class="section__title" id="print-title">Print kit</h2>
+      <p class="kit__intro">Free to print and share. Posters are A2 at 300 dpi, screens are 16:9, squares are for social.</p>
+      <ul class="kit">
+      <li><span class="kit__name">Protect the protocol! (ballot)</span><span class="kit__files"><a href="print/out/ballot-poster.pdf" download data-download>A2 PDF</a></span></li>
+      <li><span class="kit__name">Notice</span><span class="kit__files"><a href="print/out/notice-poster.pdf" download data-download>A2 PDF</a><a href="print/out/notice-screen.png" download data-download>Screen PNG</a></span></li>
+      <li><span class="kit__name">Vote no (square)</span><span class="kit__files"><a href="print/out/vote-square.png" download data-download>Square PNG</a></span></li>
+      <li><span class="kit__name">Can’t be evil</span><span class="kit__files"><a href="print/out/hooks/cant-be-evil-poster.pdf" download data-download>A2 PDF</a><a href="print/out/hooks/cant-be-evil-screen.png" download data-download>Screen PNG</a><a href="print/out/hooks/cant-be-evil-square.png" download data-download>Square PNG</a></span></li>
+      <li><span class="kit__name">Your protocol shouldn’t</span><span class="kit__files"><a href="print/out/hooks/ban-you-poster.pdf" download data-download>A2 PDF</a><a href="print/out/hooks/ban-you-screen.png" download data-download>Screen PNG</a><a href="print/out/hooks/ban-you-square.png" download data-download>Square PNG</a></span></li>
+      <li><span class="kit__name">Still theater</span><span class="kit__files"><a href="print/out/hooks/theater-poster.pdf" download data-download>A2 PDF</a><a href="print/out/hooks/theater-screen.png" download data-download>Screen PNG</a><a href="print/out/hooks/theater-square.png" download data-download>Square PNG</a></span></li>
+      <li><span class="kit__name">A door is not an exit</span><span class="kit__files"><a href="print/out/hooks/door-poster.pdf" download data-download>A2 PDF</a><a href="print/out/hooks/door-screen.png" download data-download>Screen PNG</a><a href="print/out/hooks/door-square.png" download data-download>Square PNG</a></span></li>
+      <li><span class="kit__name">One admin</span><span class="kit__files"><a href="print/out/hooks/one-admin-poster.pdf" download data-download>A2 PDF</a><a href="print/out/hooks/one-admin-screen.png" download data-download>Screen PNG</a><a href="print/out/hooks/one-admin-square.png" download data-download>Square PNG</a></span></li>
+      <li><span class="kit__name">So did we</span><span class="kit__files"><a href="print/out/hooks/so-did-we-poster.pdf" download data-download>A2 PDF</a><a href="print/out/hooks/so-did-we-screen.png" download data-download>Screen PNG</a><a href="print/out/hooks/so-did-we-square.png" download data-download>Square PNG</a></span></li>
+      <li><span class="kit__name">Sticker</span><span class="kit__files"><a href="img/sticker.png" download data-download>PNG, up to A3</a></span></li>
+      </ul>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer pp-on-field">
+  <div class="wrap site-footer__inner">
+    <span>A grassroots initiative of the Farcaster community.</span>
+  </div>
+</footer>
+
+<script src="js/film.js"></script>
+<script src="js/ballot.js"></script>
+<script src="js/downloads.js"></script>
+</body>
+</html>

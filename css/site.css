@@ -1,0 +1,222 @@
+/* Page layout for the hub. Components live in components.css. */
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-serif);
+  font-size: 18px;
+  line-height: 1.55;
+}
+img { max-width: 100%; }
+a { color: var(--violet); }
+a:hover { color: var(--violet-deep); }
+
+.wrap {
+  max-width: var(--measure);
+  margin-inline: auto;
+  padding-left: max(var(--space-5), env(safe-area-inset-left, 0px));
+  padding-right: max(var(--space-5), env(safe-area-inset-right, 0px));
+}
+
+/* Top bar: a slim violet strip so the film is the first thing you see. */
+.bar { background: var(--field); color: var(--on-field); }
+.bar__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  min-height: 52px;
+  font-family: var(--font-display);
+  font-weight: 900;
+  text-transform: uppercase;
+}
+.bar__mark { display: inline-flex; align-items: center; gap: var(--space-2); color: inherit; font-size: 16px; text-decoration: none; white-space: nowrap; }
+.bar__mark:hover { color: inherit; }
+.bar__bang { color: var(--on-field-accent); }
+.bar__where { font-size: 13px; letter-spacing: 0.08em; white-space: nowrap; }
+@media (max-width: 420px) { .bar__where { display: none; } }
+
+/* Film: full width, 16:9, capped so the headline peeks out below it on a laptop.
+   Letterboxed, never cropped: the film may carry subtitles. */
+.film {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  max-height: 80svh;
+  width: 100%;
+  background: #1b1640;
+}
+.film__video { display: block; width: 100%; height: 100%; object-fit: contain; }
+.film__empty {
+  position: absolute;
+  inset: 0;
+  display: none;
+  place-items: center;
+  color: #ffffff;
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+/* No source yet: show the placeholder and hide the controls. */
+.film:not(:has(source)) .film__empty { display: grid; }
+.film:not(:has(source)) .film__controls { display: none; }
+
+.film__controls {
+  position: absolute;
+  left: max(var(--space-5), env(safe-area-inset-left, 0px), calc((100% - var(--measure)) / 2 + var(--space-5)));
+  bottom: var(--space-4);
+  display: flex;
+  gap: var(--space-2);
+}
+.film__btn {
+  min-width: 44px;
+  min-height: 44px;
+  padding: var(--space-2) var(--space-4);
+  border: var(--stroke-box) solid var(--on-field);
+  border-radius: var(--radius-0);
+  background: var(--field);
+  color: var(--on-field);
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.film__btn:hover { background: var(--on-field); color: var(--field); }
+.film__btn:focus-visible { outline: 3px solid #ffffff; outline-offset: 3px; }
+
+/* The sticker is slapped across the bottom edge of the film. */
+.film__sticker {
+  position: absolute;
+  right: max(var(--space-5), 4vw);
+  bottom: 0;
+  width: clamp(96px, 15vw, 200px);
+  translate: 0 45%;
+  z-index: 1;
+}
+
+/* Sections */
+.section { display: flex; flex-direction: column; gap: var(--space-5); padding-block: var(--space-8); }
+.section__title {
+  margin: 0;
+  color: var(--violet);
+  font-family: var(--font-display);
+  font-size: clamp(30px, 4vw, 40px);
+  font-weight: 900;
+  line-height: 1;
+  text-transform: uppercase;
+}
+.band { background: var(--paper-tint); }
+
+/* Condensed width so "decentralization" fits on one line at every size. */
+.headline {
+  min-width: 0;
+  max-width: 14ch;
+  margin: 0;
+  color: var(--violet);
+  font-family: var(--font-display);
+  font-size: clamp(40px, 7vw, 88px);
+  font-weight: 900;
+  font-stretch: 62%;
+  line-height: 0.88;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+.headline .pp-no { text-underline-offset: 0.04em; }
+.vote-section { padding-top: var(--space-7); }
+
+.prose { max-width: 65ch; }
+.statement {
+  color: var(--violet);
+  font-family: var(--font-serif);
+  font-size: clamp(24px, 3vw, 34px);
+  font-weight: 500;
+  line-height: 1.2;
+  text-wrap: balance;
+}
+.prose p { margin: 0 0 var(--space-4); }
+.prose p:last-child { margin-bottom: 0; }
+.prose ol, .prose ul { margin: 0; padding-left: 1.5em; }
+.prose strong { color: var(--violet); }
+.prose__title {
+  margin: var(--space-6) 0 var(--space-4);
+  color: var(--violet);
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+.prose li + li { margin-top: var(--space-3); }
+.prose li::marker { color: var(--violet); font-family: var(--font-display); font-weight: 900; }
+
+/* Vote */
+.vote { max-width: 640px; }
+.vote__no, .vote__yes {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-4);
+  margin-top: var(--space-5);
+  padding: var(--space-6);
+  background: var(--paper-tint);
+  text-align: center;
+}
+.vote__no[hidden], .vote__yes[hidden] { display: none; }
+.vote__no p, .vote__yes p { margin: 0; }
+.vote__note { max-width: 30ch; }
+.vote__bravo {
+  margin: 0;
+  color: var(--violet);
+  font-family: var(--font-display);
+  font-size: 40px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+.vote__yes .t-lead { max-width: 34ch; }
+
+/* Desktop: the outcome appears beside the ballot instead of below it. */
+@media (min-width: 880px) {
+  .vote { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-6); align-items: start; max-width: none; }
+  .vote__no, .vote__yes { margin-top: 0; }
+}
+
+/* Print kit: one row per design, its files on the right. */
+.kit__intro { margin: 0; max-width: 60ch; }
+.kit { margin: 0; padding: 0; list-style: none; border-top: var(--stroke-box) solid var(--violet); }
+.kit li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-2) var(--space-5);
+  padding-block: var(--space-4);
+  border-bottom: var(--stroke-box) solid var(--violet);
+}
+.kit__name { color: var(--violet); font-family: var(--font-display); font-size: 20px; font-weight: 900; }
+.kit__files { display: flex; flex-wrap: wrap; gap: var(--space-2) var(--space-5); font-family: var(--font-display); font-size: 15px; font-weight: 700; }
+
+/* Footer */
+.site-footer { background: var(--field); color: var(--on-field); }
+.site-footer__inner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding-block: var(--space-6);
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+/* Phone: the film, the question and both boxes fit on the first screen. */
+@media (max-width: 560px) {
+  .film__sticker { width: 84px; }
+  .vote-section { padding-top: var(--space-6); }
+  .pp-ballot { gap: var(--space-4); }
+  .pp-ballot__question { font-size: 22px; }
+}

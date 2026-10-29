@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<title>Notice screen</title>
+<link rel="stylesheet" href="../css/tokens.css">
+<link rel="stylesheet" href="../css/components.css">
+<link rel="stylesheet" href="poster.css">
+<style>
+  /* 16:9 screen. Base 960 x 540 px, rendered at 3840 x 2160. */
+  :root { --w: 960px; --h: 540px; --frame: 24px; }
+
+  .paper { padding: 22px 36px 20px; gap: 4px; }
+  .pp-sheet__head { font-size: 17px; border-bottom-width: 3px; padding-bottom: 8px; }
+  .pp-notice { flex: 1; justify-content: space-evenly; padding-right: 150px; }
+  .pp-notice__row { grid-template-columns: 120px 1fr; gap: 20px; padding-block: 5px; }
+  .pp-notice__key { font-size: 15px; color: var(--violet-soft); }
+  .pp-notice__val { font-size: 30px; color: var(--ink); }
+  .v-mission { font-size: 46px; line-height: 1; font-weight: 900; color: var(--violet); text-transform: uppercase; letter-spacing: -0.02em; }
+  .v-goal { font-size: 26px; font-weight: 700; }
+  .v-ask { font-size: 44px; line-height: 1; font-weight: 900; color: var(--red); }
+  .pp-sticker { width: 170px; right: 26px; bottom: 26px; transform: rotate(-8deg); }
+</style>
+</head>
+<body>
+<div class="poster">
+  <div class="paper">
+    <div class="pp-sheet__head"><span>Official notice</span><span>Devcon · Mumbai</span></div>
+    <div class="pp-notice">
+      <div class="pp-notice__row"><span class="pp-notice__key">Who</span><span class="pp-notice__val">The Farcaster community</span></div>
+      <div class="pp-notice__row"><span class="pp-notice__key">Mission</span><span class="pp-notice__val v-mission">Protect the Protocol<span class="pp-bang">!</span></span></div>
+      <div class="pp-notice__row"><span class="pp-notice__key">Goal</span><span class="pp-notice__val v-goal">Credible neutrality and meaningful decentralization</span></div>
+      <div class="pp-notice__row"><span class="pp-notice__key">The ask</span><span class="pp-notice__val v-ask">Ethereum, stand with us.</span></div>
+      <div class="pp-notice__row"><span class="pp-notice__key">Where</span><span class="pp-notice__val">The Onchain Art Community Hub</span></div>
+    </div>
+  </div>
+  <img class="pp-sticker" src="../img/sticker.png" alt="I voted NO for Decentralization Theater">
+</div>
+</body>
+</html>

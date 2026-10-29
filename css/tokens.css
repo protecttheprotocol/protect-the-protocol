@@ -1,0 +1,121 @@
+/* Protect the Protocol — generated from tokens.json */
+/* Ballot system. Colors sampled from the "I VOTED NO" sticker. */
+
+@font-face {
+  font-family: "Archivo";
+  src: url("../fonts/Archivo-Variable.woff2") format("woff2");
+  font-weight: 100 900;
+  font-stretch: 62% 125%;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Source Serif 4";
+  src: url("../fonts/SourceSerif4-Variable.woff2") format("woff2");
+  font-weight: 200 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Source Serif 4";
+  src: url("../fonts/SourceSerif4-Italic-Variable.woff2") format("woff2");
+  font-weight: 200 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+:root, [data-theme="light"] {
+  --paper: #ffffff;
+  --paper-tint: #f1efff;
+  --ink: #1b1640;
+  --ink-muted: #4a4570;
+  --violet: #482ade;
+  --violet-deep: #2a1ea6;
+  --violet-soft: #6b5fd0;
+  --field: #482ade;
+  --on-field: #ffffff;
+  --on-field-accent: #ff8a98;
+  --red: #f0243c;
+  --red-ink: #d41530;
+  --on-red: #ffffff;
+  --rule: #d9d3fa;
+  --focus: #1b1640;
+  --shadow-sticker: 0 8px 18px rgba(20, 10, 80, 0.35);
+}
+
+[data-theme="dark"] {
+  --paper: #120e2e;
+  --paper-tint: #1c1745;
+  --ink: #ffffff;
+  --ink-muted: #b7aee6;
+  --violet: #9d8cff;
+  --violet-deep: #c2b8ff;
+  --violet-soft: #b7aee6;
+  --field: #482ade;
+  --on-field: #ffffff;
+  --on-field-accent: #ff8a98;
+  --red: #ff5468;
+  --red-ink: #ff5468;
+  --on-red: #120e2e;
+  --rule: #3a3270;
+  --focus: #ffffff;
+  --shadow-sticker: 0 8px 18px rgba(0, 0, 0, 0.5);
+  color-scheme: dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #120e2e;
+    --paper-tint: #1c1745;
+    --ink: #ffffff;
+    --ink-muted: #b7aee6;
+    --violet: #9d8cff;
+    --violet-deep: #c2b8ff;
+    --violet-soft: #b7aee6;
+    --red: #ff5468;
+    --red-ink: #ff5468;
+    --on-red: #120e2e;
+    --rule: #3a3270;
+    --focus: #ffffff;
+    --shadow-sticker: 0 8px 18px rgba(0, 0, 0, 0.5);
+    color-scheme: dark;
+  }
+}
+
+:root {
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 96px;
+
+  --radius-0: 0px;
+  --radius-round: 9999px;
+
+  --stroke-rule: 2px;
+  --stroke-box: 3px;
+  --stroke-heavy: 4px;
+  --stroke-frame: 14px;
+
+  --measure: 1160px;
+  --sticker-tilt: -6deg;
+
+  --font-display: "Archivo", "Arial Black", "Helvetica Neue", system-ui, sans-serif;
+  --font-serif: "Source Serif 4", Georgia, "Times New Roman", serif;
+}
+
+/* Type styles. Display and labels are Archivo; reading text is Source Serif 4. */
+.t-display-xl { font-family: var(--font-display); font-size: 112px; line-height: 0.9; font-weight: 900; letter-spacing: -0.025em; text-transform: uppercase; }
+.t-display-l  { font-family: var(--font-display); font-size: 72px;  line-height: 0.92; font-weight: 900; letter-spacing: -0.02em; text-transform: uppercase; }
+.t-headline   { font-family: var(--font-display); font-size: 40px;  line-height: 1;   font-weight: 900; letter-spacing: -0.01em; text-transform: uppercase; }
+.t-title      { font-family: var(--font-display); font-size: 28px;  line-height: 1.1; font-weight: 800; }
+.t-ui         { font-family: var(--font-display); font-size: 17px;  line-height: 1.2; font-weight: 700; }
+.t-label      { font-family: var(--font-display); font-size: 13px;  line-height: 1.2; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }
+.t-question   { font-family: var(--font-serif);   font-size: 28px;  line-height: 1.2; font-weight: 500; }
+.t-lead       { font-family: var(--font-serif);   font-size: 21px;  line-height: 1.4; font-weight: 400; }
+.t-body       { font-family: var(--font-serif);   font-size: 18px;  line-height: 1.55; font-weight: 400; }
+.t-small      { font-family: var(--font-serif);   font-size: 15px;  line-height: 1.5; font-weight: 400; }

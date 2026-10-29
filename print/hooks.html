@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<title>Hook posters</title>
+<link rel="stylesheet" href="../css/tokens.css">
+<link rel="stylesheet" href="../css/components.css">
+<link rel="stylesheet" href="poster.css">
+<style>
+  /* One template for every hook. ?h=<hook id>&f=poster|square|screen
+     poster: ISO portrait 600 x 848 base (A2 PDF + 300 dpi PNG)
+     square: 540 x 540 base (2160 px)
+     screen: 960 x 540 base (3840 x 2160) */
+  @page { size: 420mm 594mm; margin: 0; }
+  @media print { html { zoom: 2.6457; } }
+
+  .poster.f-poster { --w: 600px; --h: 848px; --frame: 28px; }
+  .poster.f-square { --w: 540px; --h: 540px; --frame: 20px; }
+  .poster.f-screen { --w: 960px; --h: 540px; --frame: 24px; }
+
+  .paper { gap: 16px; }
+  .f-poster .paper { padding: 32px 32px 28px; }
+  .f-square .paper { padding: 26px 26px 22px; gap: 12px; }
+  .f-screen .paper { padding: 24px 36px 22px; gap: 12px; }
+
+  .pp-sheet__head { font-size: 15px; }
+  .f-poster .pp-sheet__head { font-size: 18px; }
+  .f-screen .pp-sheet__head, .f-square .pp-sheet__head { border-bottom-width: 3px; padding-bottom: 8px; }
+
+  .stage { flex: 1; min-height: 0; display: flex; flex-direction: column; justify-content: safe center; gap: 18px; }
+  .stage--split { flex-direction: row; align-items: center; justify-content: space-between; gap: 24px; }
+  .stage--split .words { flex: 1; min-width: 0; min-height: 0; display: flex; flex-direction: column; justify-content: safe center; gap: 18px; }
+  .f-poster .stage--split { flex-direction: column; align-items: stretch; }
+
+  /* The hook. Font size is fitted by the script below. */
+  .hook {
+    margin: 0;
+    color: var(--violet);
+    font-weight: 900;
+    font-stretch: 75%;
+    line-height: 0.95;
+    letter-spacing: -0.015em;
+    text-wrap: balance;
+  }
+  .hook .line { display: block; }
+  .hook.nowrap .line { white-space: nowrap; }
+  .hook .soft { color: var(--violet-soft); }
+  .hook .strike { color: var(--violet-soft); text-decoration: line-through; text-decoration-color: var(--red); text-decoration-thickness: 0.09em; }
+  .hook .ink { color: var(--ink); }
+  .hook .nb { white-space: nowrap; }
+  .hook .red { color: var(--red); }
+  /* The marker: a red band behind the turn of the line. Large type only. */
+  .hook .mark { background: var(--red); color: var(--on-red); padding: 0 0.12em; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
+  .hook .small { display: block; margin-top: 0.35em; font-size: 0.55em; line-height: 1.05; letter-spacing: -0.005em; }
+
+  .ctx { margin: 0; max-width: 34em; font-size: 19px; line-height: 1.35; }
+  .f-square .ctx { font-size: 16px; max-width: 26em; }
+  .f-screen .ctx { font-size: 18px; max-width: 40em; }
+
+  .stage-sticker { flex: none; width: 46%; max-width: 300px; transform: rotate(-7deg); filter: drop-shadow(var(--shadow-sticker)); }
+  .f-poster .stage-sticker { align-self: flex-end; width: 250px; margin-right: 8px; }
+  .f-screen .stage-sticker { width: 33%; }
+  .f-square .stage-sticker { width: 38%; }
+
+  .callout { gap: 16px; padding: 14px; padding-right: 128px; }
+  .f-poster .qr { width: 96px; height: 96px; }
+  .f-screen .qr { width: 64px; height: 64px; }
+  .f-screen .callout { padding: 10px; padding-right: 128px; }
+  .callout__ask { font-size: 20px; }
+  .f-screen .callout__ask { font-size: 20px; }
+  .callout__url { margin-top: 5px; font-size: 13px; }
+
+  .foot { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-right: 96px; white-space: nowrap; color: var(--violet); font-size: 15px; font-weight: 900; text-transform: uppercase; }
+  .foot img { width: 26px; height: 26px; }
+  .foot > span { display: inline-flex; align-items: center; gap: 8px; }
+  .foot small { color: var(--ink); font-size: 12px; letter-spacing: 0.04em; }
+
+  .corner { width: 132px; right: 8px; bottom: 8px; transform: rotate(-8deg); }
+  .f-square .corner { width: 92px; right: 6px; bottom: 6px; }
+  .f-square .stage { padding-bottom: 30px; }
+  .f-screen .corner { width: 124px; }
+</style>
+</head>
+<body>
+<div class="poster" id="poster"></div>
+
+<script>
+  // Copy lives here. Lines are HTML; classes: soft, strike, ink, red, mark, small.
+  const HOOKS = {
+    'cant-be-evil': {
+      lines: ['<span class="strike">Don’t be evil.</span>', 'Can’t be evil.'],
+      ctx: 'Farcaster, an onchain social network, still runs on the first one.',
+      nowrap: true,
+    },
+    'ban-you': {
+      lines: ['<span class="soft">Your app can ban you.</span>', 'Your protocol <span class="mark">shouldn’t.</span>'],
+      ctx: 'On Farcaster, one company still decides who gets to participate.',
+    },
+    'theater': {
+      lines: ['Decentralization theater is', '<span class="mark">still theater.</span>'],
+      ctx: 'Farcaster calls itself “sufficiently decentralized.” Its users are asking for the real thing.',
+      sticker: true,
+    },
+    'door': {
+      lines: ['A door is not an exit if someone else', '<span class="mark">holds the key.</span>'],
+      ctx: 'Farcaster’s code can be forked. The keys to the network are still held by one company.',
+    },
+    'one-admin': {
+      lines: ['Would you build on a protocol with one admin?', '<span class="small"><span class="red">We did.</span> <span class="ink nb">It’s called Farcaster.</span></span>'],
+    },
+    'so-did-we': {
+      lines: ['<span class="soft">You came to Devcon for decentralization.</span>', '<span class="mark">So did we.</span>'],
+      ctx: 'We’re the Farcaster community. Come say hi at The Onchain Art Community Hub.',
+    },
+  };
+
+  const q = new URLSearchParams(location.search);
+  const id = HOOKS[q.get('h')] ? q.get('h') : 'cant-be-evil';
+  const fmt = ['poster', 'square', 'screen'].includes(q.get('f')) ? q.get('f') : 'poster';
+  const hook = HOOKS[id];
+  const STICKER = '../img/sticker.png';
+
+  const words = `
+    <h1 class="hook${hook.nowrap ? ' nowrap' : ''}" id="hook">${hook.lines.map((l) => `<span class="line">${l}</span>`).join('')}</h1>
+    ${hook.ctx ? `<p class="ctx serif">${hook.ctx}</p>` : ''}`;
+  const stage = hook.sticker
+    ? `<div class="stage stage--split" id="stage"><div class="words">${words}</div><img class="stage-sticker" src="${STICKER}" alt="I voted NO for Decentralization Theater"></div>`
+    : `<div class="stage" id="stage">${words}</div>`;
+
+  const bottom = fmt === 'square'
+    ? `<div class="foot"><span><img src="../img/mark.svg" alt=""><span>Protect the Protocol<span class="pp-bang">!</span></span></span><small>protecttheprotocol.org</small></div>`
+    : `<div class="callout">
+         <div class="qr"><img src="../img/qr.svg" alt="QR code for protecttheprotocol.org"></div>
+         <div><div class="callout__ask">Find us at The Onchain Art Community Hub.</div><div class="callout__url">protecttheprotocol.org</div></div>
+       </div>`;
+
+  const poster = document.getElementById('poster');
+  poster.className = `poster f-${fmt}`;
+  poster.innerHTML = `
+    <div class="paper">
+      <div class="pp-sheet__head"><span>Protect the Protocol<span class="pp-bang">!</span></span><span>Devcon · Mumbai</span></div>
+      ${stage}
+      ${bottom}
+    </div>
+    ${hook.sticker ? '' : `<img class="pp-sticker corner" src="${STICKER}" alt="I voted NO for Decentralization Theater">`}`;
+
+  // Fit the hook: the largest size at which no line overflows and the stage does not scroll.
+  async function fit() {
+    await document.fonts.ready;
+    const h1 = document.getElementById('hook');
+    // Measure the text column; the tilted sticker pokes out of the stage on purpose.
+    const box = document.querySelector('.words') ?? document.getElementById('stage');
+    const max = { poster: 130, square: 92, screen: 92 }[fmt];
+    const fits = () => box.scrollHeight <= box.clientHeight + 1 && h1.scrollWidth <= h1.clientWidth + 1;
+    let lo = 16, hi = max;
+    while (hi - lo > 0.5) {
+      const mid = (lo + hi) / 2;
+      h1.style.fontSize = mid + 'px';
+      if (fits()) lo = mid; else hi = mid;
+    }
+    h1.style.fontSize = lo + 'px';
+    document.documentElement.dataset.ready = '1';
+  }
+  fit();
+</script>
+</body>
+</html>
