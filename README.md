@@ -12,7 +12,7 @@ js/film.js          hero film controls (pause, sound)
 js/downloads.js     print kit links: plain downloads, or the save prompt inside a claude.ai artifact
 fonts/              Archivo + Source Serif 4, variable woff2 (SIL OFL)
 img/                mark.svg, mark-reverse.svg, sticker.png (cut-out), qr.svg, share.png (link preview)
-design/             README.md (brand rules) + tokens.json (source for the design system)
+design/             README.md (brand rules) + tokens.json (source for the design system) + brand-kit.md (both, flattened to one page for work outside the repo)
 print/              poster sources (*.html), qr.mjs and render.mjs; masters land in print/out/ (committed: the print kit links to them)
 ```
 
