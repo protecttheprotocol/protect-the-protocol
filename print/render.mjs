@@ -27,6 +27,10 @@ const jobs = [
   { name: 'notice-poster', w: 600, h: 848, scale: 8.27, pdf: true },
   { name: 'notice-screen', w: 960, h: 540, scale: 4 },
   { name: 'vote-square', w: 540, h: 540, scale: 4 },
+  // Flag: 3.2 : 1, vector PDF at 96 x 30 in. The PNG stops at 15x (14400 x 4500)
+  // because Chrome tiles and corrupts a capture past 16384 px; for the full
+  // 28800 x 9000 raster, rasterise the PDF: pdftoppm -r 300 -png.
+  { name: 'vote-horizontal', w: 960, h: 300, scale: 15, pdf: true },
   // Link preview image for the site (og:image), 1200 px.
   { name: 'share', file: 'vote-square.html', w: 540, h: 540, scale: 1200 / 540, png: path.join(here, '../img/share.png') },
 ];
