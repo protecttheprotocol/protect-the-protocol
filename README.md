@@ -56,6 +56,20 @@ This drives the installed Edge or Chrome through playwright-core (set `BROWSER` 
 | `ballot-poster.png`, `notice-poster.png` | 4962 x 7013 px (A2 at 300 dpi) |
 | `notice-screen.png` | 3840 x 2160 |
 | `vote-square.png` | 2160 x 2160 |
+| `vote-horizontal.pdf` | vector, 96 x 30 in flag (3.2 : 1) |
+| `vote-horizontal.png` | 14400 x 4500 |
+
+The flag is the one master Chrome cannot screenshot at full size: past 16384 px it tiles the
+capture and repeats the artwork, so `render.mjs` stops its PNG at 14400 px. For the 28800 x 9000
+raster the flag printers want, rasterise the vector PDF instead (needs poppler, `brew install poppler`):
+
+```sh
+pdftoppm -r 300 -png -singlefile out/vote-horizontal.pdf out/vote-horizontal-300dpi
+```
+
+At that size the sticker is the limit, not the type: its 912 px source is scaled about 6x, which is
+roughly 50 dpi on the finished flag. Fine at flag viewing distance, soft close up — the vector
+original would fix it.
 
 ### Hook posters
 

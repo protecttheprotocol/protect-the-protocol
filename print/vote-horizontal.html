@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<title>Vote horizontal</title>
+<link rel="stylesheet" href="../css/tokens.css">
+<link rel="stylesheet" href="../css/components.css">
+<link rel="stylesheet" href="poster.css">
+<style>
+  /* Horizontal flag. Base 960 x 300 px (3.2 : 1). Vector PDF at 96 x 30 in,
+     which is 28800 x 9000 at 300 dpi — the size of the existing flags.
+     Same sheet as vote-square.html; the stack turns into a row. */
+  @page { size: 2438.4mm 762mm; margin: 0; }
+  @media print { html { zoom: 9.6; } }
+  :root { --w: 960px; --h: 300px; --frame: 15px; }
+
+  .paper { padding: 18px 22px 16px; gap: 12px; }
+  .pp-sheet__head { flex: none; font-size: 15px; border-bottom-width: 3px; padding-bottom: 7px; }
+
+  /* The head rule still spans the sheet; below it, words left and sticker right. */
+  .body { flex: 1; min-height: 0; display: flex; align-items: center; gap: 24px; }
+  .words { flex: 1; min-width: 0; display: flex; flex-direction: column; height: 100%; }
+
+  h1 { margin: 0; font-size: 60px; font-weight: 900; font-stretch: 62%; line-height: 0.88; letter-spacing: -0.01em; text-transform: uppercase; }
+  .kicker { margin: 9px 0 0; max-width: 34em; font-size: 19px; line-height: 1.3; }
+
+  /* Its own class: .pp-sticker is positioned absolutely by poster.css. */
+  .stage-sticker { flex: none; width: 176px; transform: rotate(-8deg); filter: drop-shadow(var(--shadow-sticker)); }
+
+  .foot { margin-top: auto; display: flex; align-items: center; gap: 10px; font-size: 16px; font-weight: 900; text-transform: uppercase; }
+  .foot img { width: 30px; height: 30px; }
+</style>
+</head>
+<body>
+<div class="poster">
+  <div class="paper">
+    <div class="pp-sheet__head"><span>Official ballot</span><span>Devcon · Mumbai</span></div>
+    <div class="body">
+      <div class="words">
+        <h1>Vote <span class="pp-no">no</span> on<br>decentralization theater.</h1>
+        <p class="kicker serif">A permission that can be revoked is not freedom.</p>
+        <div class="foot"><img src="../img/mark.svg" alt=""><span>Protect the Protocol<span class="pp-bang">!</span></span></div>
+      </div>
+      <img class="stage-sticker" src="../img/sticker.png" alt="I voted NO for Decentralization Theater">
+    </div>
+  </div>
+</div>
+</body>
+</html>
