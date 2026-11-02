@@ -8,8 +8,10 @@
   const sound = document.querySelector('[data-film-sound]');
 
   function sync() {
-    play.textContent = video.paused ? 'Play' : 'Pause';
-    sound.textContent = video.muted ? 'Sound on' : 'Sound off';
+    play.setAttribute('aria-label', video.paused ? 'Play' : 'Pause');
+    sound.setAttribute('aria-label', video.muted ? 'Sound on' : 'Sound off');
+    play.dataset.paused = video.paused;
+    sound.dataset.muted = video.muted;
   }
 
   if (matchMedia('(prefers-reduced-motion: reduce)').matches) {

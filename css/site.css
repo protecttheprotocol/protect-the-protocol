@@ -66,28 +66,44 @@ a:hover { color: var(--violet-deep); }
 .film:not(:has(source)) .film__empty { display: grid; }
 .film:not(:has(source)) .film__controls { display: none; }
 
+/* Small icon buttons in the top corner: the film's captions run along the bottom. */
 .film__controls {
   position: absolute;
-  left: max(var(--space-5), env(safe-area-inset-left, 0px), calc((100% - var(--measure)) / 2 + var(--space-5)));
-  bottom: var(--space-4);
+  top: var(--space-2);
+  right: max(var(--space-2), env(safe-area-inset-right, 0px));
   display: flex;
-  gap: var(--space-2);
 }
+/* 44px tap target around a 32px button. */
 .film__btn {
-  min-width: 44px;
-  min-height: 44px;
-  padding: var(--space-2) var(--space-4);
-  border: var(--stroke-box) solid var(--on-field);
-  border-radius: var(--radius-0);
-  background: var(--field);
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 0;
+  background: none;
   color: var(--on-field);
-  font-family: var(--font-display);
-  font-size: 15px;
-  font-weight: 700;
   cursor: pointer;
 }
-.film__btn:hover { background: var(--on-field); color: var(--field); }
-.film__btn:focus-visible { outline: 3px solid #ffffff; outline-offset: 3px; }
+.film__icon {
+  width: 32px;
+  height: 32px;
+  padding: 6px;
+  border: 2px solid var(--on-field);
+  background: rgb(27 22 64 / 0.6);
+  fill: currentColor;
+  stroke: currentColor;
+  stroke-width: 0;
+}
+.film__icon--muted path, .film__icon--sound path { fill: none; stroke-width: 2; stroke-linejoin: round; }
+.film__icon--muted path:first-child, .film__icon--sound path:first-child { fill: currentColor; stroke-width: 0; }
+.film__btn[data-paused="true"] .film__icon--pause,
+.film__btn[data-paused="false"] .film__icon--play,
+.film__btn[data-muted="true"] .film__icon--sound,
+.film__btn[data-muted="false"] .film__icon--muted { display: none; }
+.film__btn:hover .film__icon { background: var(--on-field); color: var(--field); }
+.film__btn:focus-visible { outline: none; }
+.film__btn:focus-visible .film__icon { outline: 3px solid #ffffff; outline-offset: 2px; }
 
 /* The sticker is slapped across the bottom edge of the film. */
 .film__sticker {
@@ -199,7 +215,8 @@ a:hover { color: var(--violet-deep); }
 
 /* Phone: the film, the question and both boxes fit on the first screen. */
 @media (max-width: 560px) {
-  .film__sticker { width: 84px; }
+  /* Hang the sticker lower so it clears the captions. */
+  .film__sticker { width: 84px; translate: 0 85%; }
   .vote-section { padding-top: var(--space-6); }
   .pp-ballot { gap: var(--space-4); }
   .pp-ballot__question { font-size: 22px; }
