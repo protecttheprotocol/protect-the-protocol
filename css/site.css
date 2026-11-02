@@ -168,7 +168,6 @@ a:hover { color: var(--violet-deep); }
 }
 .vote__no[hidden], .vote__yes[hidden] { display: none; }
 .vote__no p, .vote__yes p { margin: 0; }
-.vote__note { max-width: 30ch; }
 .vote__bravo {
   margin: 0;
   color: var(--violet);
@@ -184,21 +183,6 @@ a:hover { color: var(--violet-deep); }
   .vote { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-6); align-items: start; max-width: none; }
   .vote__no, .vote__yes { margin-top: 0; }
 }
-
-/* Print kit: one row per design, its files on the right. */
-.kit__intro { margin: 0; max-width: 60ch; }
-.kit { margin: 0; padding: 0; list-style: none; border-top: var(--stroke-box) solid var(--violet); }
-.kit li {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: var(--space-2) var(--space-5);
-  padding-block: var(--space-4);
-  border-bottom: var(--stroke-box) solid var(--violet);
-}
-.kit__name { color: var(--violet); font-family: var(--font-display); font-size: 20px; font-weight: 900; }
-.kit__files { display: flex; flex-wrap: wrap; gap: var(--space-2) var(--space-5); font-family: var(--font-display); font-size: 15px; font-weight: 700; }
 
 /* Footer */
 .site-footer { background: var(--field); color: var(--on-field); }

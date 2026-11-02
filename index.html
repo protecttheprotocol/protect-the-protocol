@@ -34,9 +34,8 @@
 
   <!-- 1. Film. Full width. Plays muted, once, until someone turns the sound on. -->
   <section class="film" aria-label="Campaign film">
-    <!-- Add the poster frame and the source to switch the film on, e.g.
-         poster="img/film-poster.jpg" and <source src="https://…/film.mp4" type="video/mp4"> -->
-    <video class="film__video" autoplay muted playsinline preload="metadata" data-film>
+    <video class="film__video" autoplay muted playsinline preload="metadata" poster="img/film-poster.jpg" data-film>
+      <source src="video/film.mp4" type="video/mp4">
     </video>
     <div class="film__empty" aria-hidden="true">[Campaign film]</div>
     <div class="film__controls">
@@ -46,7 +45,7 @@
     <img class="pp-sticker film__sticker" src="img/sticker.png" alt="Sticker: I voted NO for Decentralization Theater" width="190" height="190">
   </section>
 
-  <!-- 2. The vote. Voting NO ends in a cast: the cast is the vote of record. -->
+  <!-- 2. The vote. -->
   <section class="wrap section vote-section" id="vote" aria-labelledby="vote-title">
     <h1 class="headline" id="vote-title">Vote <span class="pp-no">no</span> on decentralization theater.</h1>
 
@@ -70,9 +69,7 @@
             <span>Precinct: Devcon Mumbai</span>
             <span>Your vote: <strong>NO</strong> on decentralization theater</span>
           </div>
-          <a class="pp-btn pp-btn--vote" href="https://farcaster.xyz/~/compose?text=I+voted+NO+for+decentralization+theater.&amp;embeds%5B%5D=https%3A%2F%2Fprotecttheprotocol.org%2F">Cast it on Farcaster</a>
-          <p class="vote__note">Your cast is your vote.</p>
-          <p class="t-small">Not on Farcaster? <a href="https://x.com/intent/post?text=I+voted+NO+for+decentralization+theater.&amp;url=https%3A%2F%2Fprotecttheprotocol.org%2F">Post it on X</a> · <a href="img/sticker.png" download data-download>Save the sticker</a></p>
+          <p class="t-small"><a href="https://x.com/intent/post?text=I+voted+NO+for+decentralization+theater.&amp;url=https%3A%2F%2Fprotecttheprotocol.org%2F">Post it on X</a> · <a href="img/sticker.png" download data-download>Save the sticker</a></p>
         </div>
 
         <div class="vote__yes" data-state="yes" hidden>
@@ -109,35 +106,10 @@
     </div>
   </section>
 
-  <!-- 4. Link-outs. One <li> per link, most important first. -->
-  <section class="wrap section" aria-labelledby="links-title">
-    <h2 class="section__title" id="links-title">Go further</h2>
-    <ul class="pp-links">
-      <li><a href="[STATEMENT URL]"><span class="pp-links__title">Read the full statement</span><span class="pp-links__note">[Where it lives]</span></a></li>
-      <li><a href="[CHANNEL URL]"><span class="pp-links__title">Join the channel on Farcaster</span><span class="pp-links__note">[/channel]</span></a></li>
-      <li><a href="#print"><span class="pp-links__title">Print the posters</span><span class="pp-links__note">A2 PDFs, free to use</span></a></li>
-      <li><a href="[CONTACT URL]"><span class="pp-links__title">Talk to us</span><span class="pp-links__note">The Onchain Art Community Hub, Devcon Mumbai</span></a></li>
-    </ul>
-  </section>
-
-  <!-- 5. Print kit. Files come from print/out (run `npm run render` in print/). -->
-  <section class="band" id="print" aria-labelledby="print-title">
-    <div class="wrap section">
-      <h2 class="section__title" id="print-title">Print kit</h2>
-      <p class="kit__intro">Free to print and share. Posters are A2 at 300 dpi, screens are 16:9, squares are for social.</p>
-      <ul class="kit">
-      <li><span class="kit__name">Protect the protocol! (ballot)</span><span class="kit__files"><a href="print/out/ballot-poster.pdf" download data-download>A2 PDF</a></span></li>
-      <li><span class="kit__name">Notice</span><span class="kit__files"><a href="print/out/notice-poster.pdf" download data-download>A2 PDF</a><a href="print/out/notice-screen.png" download data-download>Screen PNG</a></span></li>
-      <li><span class="kit__name">Vote no (square)</span><span class="kit__files"><a href="print/out/vote-square.png" download data-download>Square PNG</a></span></li>
-      <li><span class="kit__name">Can’t be evil</span><span class="kit__files"><a href="print/out/hooks/cant-be-evil-poster.pdf" download data-download>A2 PDF</a><a href="print/out/hooks/cant-be-evil-screen.png" download data-download>Screen PNG</a><a href="print/out/hooks/cant-be-evil-square.png" download data-download>Square PNG</a></span></li>
-      <li><span class="kit__name">Your protocol shouldn’t</span><span class="kit__files"><a href="print/out/hooks/ban-you-poster.pdf" download data-download>A2 PDF</a><a href="print/out/hooks/ban-you-screen.png" download data-download>Screen PNG</a><a href="print/out/hooks/ban-you-square.png" download data-download>Square PNG</a></span></li>
-      <li><span class="kit__name">Still theater</span><span class="kit__files"><a href="print/out/hooks/theater-poster.pdf" download data-download>A2 PDF</a><a href="print/out/hooks/theater-screen.png" download data-download>Screen PNG</a><a href="print/out/hooks/theater-square.png" download data-download>Square PNG</a></span></li>
-      <li><span class="kit__name">A door is not an exit</span><span class="kit__files"><a href="print/out/hooks/door-poster.pdf" download data-download>A2 PDF</a><a href="print/out/hooks/door-screen.png" download data-download>Screen PNG</a><a href="print/out/hooks/door-square.png" download data-download>Square PNG</a></span></li>
-      <li><span class="kit__name">One admin</span><span class="kit__files"><a href="print/out/hooks/one-admin-poster.pdf" download data-download>A2 PDF</a><a href="print/out/hooks/one-admin-screen.png" download data-download>Screen PNG</a><a href="print/out/hooks/one-admin-square.png" download data-download>Square PNG</a></span></li>
-      <li><span class="kit__name">So did we</span><span class="kit__files"><a href="print/out/hooks/so-did-we-poster.pdf" download data-download>A2 PDF</a><a href="print/out/hooks/so-did-we-screen.png" download data-download>Screen PNG</a><a href="print/out/hooks/so-did-we-square.png" download data-download>Square PNG</a></span></li>
-      <li><span class="kit__name">Sticker</span><span class="kit__files"><a href="img/sticker.png" download data-download>PNG, up to A3</a></span></li>
-      </ul>
-    </div>
+  <!-- 4. Where to find us. -->
+  <section class="wrap section" aria-labelledby="talk-title">
+    <h2 class="section__title" id="talk-title">Talk to us</h2>
+    <p class="statement">Find us at The Onchain Art Community Hub, Level 3, Devcon Mumbai.</p>
   </section>
 
 </main>

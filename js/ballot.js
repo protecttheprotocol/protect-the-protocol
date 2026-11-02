@@ -1,6 +1,5 @@
 // One-tap ballot: the check draws itself, then the result panel shows.
-// The vote of record is the cast the NO panel asks for. Nothing is sent from here;
-// if the site ever shows a tally, send the vote to a counter in `pick()`.
+// Nothing is sent from here; if the site ever shows a tally, send the vote to a counter in `pick()`.
 (function () {
   const ballot = document.querySelector('[data-ballot]');
   if (!ballot) return;
