@@ -30,6 +30,36 @@
   </div>
 </header>
 
+  <!-- 1. Film. Full width. Plays muted, once, until someone turns the sound on. -->
+  <section class="film" aria-label="Campaign film">
+    <video class="film__video" autoplay muted playsinline preload="metadata" poster="img/film-poster.jpg" data-film>
+      <source src="video/film.mp4" type="video/mp4">
+    </video>
+    <div class="film__empty" aria-hidden="true">[Campaign film]</div>
+    <div class="film__controls">
+      <button class="film__btn" type="button" aria-label="Pause" data-film-play>
+        <svg class="film__icon film__icon--pause" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M7 5h3v14H7zM14 5h3v14h-3z" />
+        </svg>
+        <svg class="film__icon film__icon--play" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M8 5v14l11-7z" />
+        </svg>
+      </button>
+      <button class="film__btn" type="button" aria-label="Sound on" data-film-sound>
+        <svg class="film__icon film__icon--muted" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M4 9h4l5-4v14l-5-4H4z" />
+          <path d="M16 9l5 6M21 9l-5 6" />
+        </svg>
+        <svg class="film__icon film__icon--sound" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M4 9h4l5-4v14l-5-4H4z" />
+          <path d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12" />
+        </svg>
+      </button>
+    </div>
+    <img class="pp-sticker film__sticker" src="img/sticker.png" alt="Sticker: I voted NO for Decentralization Theater"
+      width="190" height="190">
+  </section>
+
 <main id="top">
 
   <!-- 2. The vote. -->
