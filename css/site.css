@@ -222,83 +222,80 @@ a:hover { color: var(--violet-deep); }
   .pp-ballot__question { font-size: 22px; }
 }
 
+/* PTP header update. */
 
+.ptp-header {
+  background: #482ade;
+  color: #fff;
+}
 
-/* Protect the Protocol — primary navigation */
-
-.ptp-nav {
+.ptp-header .bar__inner {
   display: flex;
   align-items: center;
-  justify-content: flex-end;
-  gap: clamp(16px, 2.5vw, 32px);
-  margin-left: auto;
+  justify-content: space-between;
+  min-height: 52px;
+  gap: 24px;
 }
 
-.ptp-nav a {
-  text-decoration: none;
-  white-space: nowrap;
-  font-family: var(--font-display, Archivo, sans-serif);
-  font-weight: 800;
-  line-height: 1.2;
-}
-
-.ptp-nav__play {
+.ptp-header .bar__mark,
+.ptp-header .bar__mark:visited {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: #fff;
-  color: #482ade !important;
-  padding: 9px 17px;
+  color: #fff;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.ptp-header .bar__mark img {
+  display: block;
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+}
+
+.ptp-header .ptp-header__nav {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  margin-left: auto;
+}
+
+.ptp-header .ptp-header__nav a,
+.ptp-header .ptp-header__nav a:visited {
+  color: #fff;
+  font-family: var(--font-display);
+  font-weight: 900;
+  text-decoration: none;
+  text-transform: uppercase;
+  white-space: nowrap;
+  letter-spacing: 0.06em;
+}
+
+.ptp-header .ptp-header__play {
+  font-size: 17px;
+}
+
+.ptp-header .ptp-header__event {
   font-size: 13px;
-  letter-spacing: 0.04em;
-  transition: background 150ms ease;
 }
 
-.ptp-nav__play:hover {
-  background: #e8e2ff;
-}
-
-.ptp-nav__event {
-  color: #fff !important;
-  font-size: 12px;
-  letter-spacing: 0.07em;
-  opacity: 0.9;
-}
-
-.ptp-nav__event:hover {
-  opacity: 1;
+.ptp-header .ptp-header__nav a:hover {
   text-decoration: underline;
   text-underline-offset: 5px;
 }
 
-@media (max-width: 600px) {
-  .ptp-nav {
-    gap: 12px;
-  }
-
-  .ptp-nav__play {
-    padding: 8px 12px;
-    font-size: 12px;
-  }
-
-  .ptp-nav__event {
-    font-size: 10px;
-    letter-spacing: 0.02em;
-  }
-
-  .bar__mark span {
-    font-size: 12px;
-  }
-}
-
-@media (max-width: 390px) {
-  .bar__inner {
+@media (max-width: 680px) {
+  .ptp-header .bar__inner {
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 12px;
+    padding-block: 12px;
   }
 
-  .ptp-nav {
+  .ptp-header .ptp-header__nav {
     width: 100%;
-    justify-content: space-between;
+    margin-left: 0;
+    justify-content: flex-start;
+    gap: 24px;
   }
 }
