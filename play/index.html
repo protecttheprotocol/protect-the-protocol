@@ -1,0 +1,221 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+  <title>Play | Protect the Protocol!</title>
+  <meta name="theme-color" content="#482ade">
+  <meta name="description"
+        content="Play Protect the Protocol, the NES game.">
+
+  <link rel="icon" href="../img/mark.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../css/tokens.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/site.css">
+
+  <style>
+    .play-main {
+      min-height: 80svh;
+    }
+
+    .play-heading {
+      padding-block: clamp(28px, 5vw, 64px) 24px;
+    }
+
+    .play-heading h1 {
+      margin: 0 0 12px;
+    }
+
+    .play-heading p {
+      margin: 0;
+      color: var(--ink-muted);
+    }
+
+    .play-stage {
+      background: #100c25;
+      padding: clamp(8px, 2vw, 24px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .play-screen {
+      width: 100%;
+      max-width: 960px;
+      aspect-ratio: 4 / 3;
+      background: #000;
+      position: relative;
+      overflow: hidden;
+    }
+
+    #game {
+      width: 100%;
+      height: 100%;
+    }
+
+    .play-actions {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .play-fullscreen {
+      font-family: var(--font-display);
+      font-weight: 800;
+      text-transform: uppercase;
+      background: var(--red);
+      color: #fff;
+      border: 0;
+      padding: 12px 24px;
+      cursor: pointer;
+    }
+
+    .play-fullscreen:hover {
+      filter: brightness(1.1);
+    }
+
+    .play-note {
+      padding-block: 20px 48px;
+      color: var(--ink-muted);
+      text-align: center;
+    }
+
+    .play-stage:fullscreen {
+      width: 100%;
+      height: 100%;
+      padding: 8px;
+      justify-content: center;
+      overflow: auto;
+    }
+
+    .play-stage:fullscreen .play-screen {
+      width: min(100%, calc((100dvh - 85px) * 4 / 3));
+      max-width: none;
+      max-height: calc(100dvh - 85px);
+      flex-shrink: 1;
+    }
+
+    @media (max-width: 600px) {
+      .play-stage {
+        padding: 4px;
+      }
+
+      .play-heading {
+        padding-block: 24px 16px;
+      }
+
+      .play-screen {
+        width: 100%;
+      }
+
+      .play-fullscreen {
+        min-height: 44px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="bar pp-on-field">
+    <div class="wrap bar__inner">
+      <a class="bar__mark" href="../">
+        <img src="../img/mark-reverse.svg"
+             alt="" width="28" height="28">
+        <span>Protect the Protocol!</span>
+      </a>
+      <span class="bar__where">NES Game</span>
+    </div>
+  </header>
+
+  <main class="play-main">
+    <section class="wrap play-heading">
+      <h1 class="headline">
+        Press <span class="pp-no">start.</span>
+      </h1>
+      <p class="t-lead">
+        Protect the Protocol. Play the game.
+      </p>
+    </section>
+
+    <section class="play-stage"
+             id="playStage"
+             aria-label="NES game player">
+
+      <div class="play-screen">
+        <div id="game"></div>
+      </div>
+
+      <div class="play-actions">
+        <button class="play-fullscreen"
+                id="fullscreenBtn"
+                type="button">
+          Fullscreen
+        </button>
+      </div>
+    </section>
+
+    <div class="wrap play-note">
+      <p class="t-small">
+        Keyboard, gamepad, and mobile touch controls supported.
+      </p>
+    </div>
+  </main>
+
+  <footer class="site-footer pp-on-field">
+    <div class="wrap site-footer__inner">
+      <span>
+        A grassroots initiative of the Farcaster community.
+      </span>
+    </div>
+  </footer>
+
+  <!-- EmulatorJS configuration -->
+  <script>
+    window.EJS_player = "#game";
+    window.EJS_core = "nes";
+    window.EJS_gameName = "Protect the Protocol";
+
+    // ROM is in the same directory as this HTML file.
+    window.EJS_gameUrl = "./protecttheprotocol.nes";
+
+    // Load emulator assets from CDN.
+    window.EJS_pathtodata =
+      "https://cdn.emulatorjs.org/stable/data/";
+
+    // Start emulation automatically after loading.
+    window.EJS_startOnLoaded = true;
+  </script>
+
+  <script src="https://cdn.emulatorjs.org/stable/data/loader.js"></script>
+
+  <!-- Fullscreen control -->
+  <script>
+    const stage = document.getElementById("playStage");
+    const fullscreenBtn = document.getElementById("fullscreenBtn");
+
+    fullscreenBtn.addEventListener("click", async () => {
+      try {
+        if (!document.fullscreenElement) {
+          await stage.requestFullscreen();
+        } else {
+          await document.exitFullscreen();
+        }
+      } catch (err) {
+        console.warn("Fullscreen unavailable:", err);
+      }
+    });
+
+    document.addEventListener("fullscreenchange", () => {
+      fullscreenBtn.textContent =
+        document.fullscreenElement
+          ? "Exit Fullscreen"
+          : "Fullscreen";
+    });
+  </script>
+</body>
+</html>
